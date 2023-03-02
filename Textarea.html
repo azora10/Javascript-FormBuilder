@@ -1,0 +1,136 @@
+<html>
+
+<head>
+	<link href="css/fonts.css" rel="stylesheet" type="text/css" />
+	<link href="css/mainstyle.css" rel="stylesheet" type="text/css" />
+	<link href="css/responsive.css" rel="stylesheet" type="text/css" />
+</head>
+
+</html>
+
+<body>
+
+	<div class="modal modal_multi" id="inpTextAreaId">
+		<div class="modal-content" ondrop="onDrop(event);">
+			<span class="close-button " onclick="closeModal()">&times;</span>
+			<div class="popupInnerContent">
+				<h3>Textarea Field Component</h3>
+				<div class="col-row">
+					<div class="colu-6">
+						<div class="editFormField">
+							<div class="form-box labelExistRadio">
+								<label>Label <i class="Questionicons"><span class="R-st">The label for this field that
+											will appear next to it.</span></i></label>
+								<input type="radio" placeholder=" " id='labelYes' name="yesorno" checked
+									onclick="labelYes()" /> Yes
+								<input type="radio" placeholder=" " id='labelNo' name="yesorno" onclick="labelNo()" />
+								No
+							</div>
+							<div class="form-box labelInput">
+								<div class="inlineform" id="ghostLabel"><label>Label</label><input
+										class="form-control" placeholder="" id="areaLabel" value=""
+										onkeyup="populateLabeAreaBox()" /></div>
+							</div>
+							<div class="form-box labelPosRadio">
+								<label>Label Position <i class="Questionicons"><span class="R-st">Position for the label
+											for this field</span></i></label>
+								<select class="form-control" onchange="moveLabel(this)">
+									<option value='top'>Top</option>
+									<option value='left'>Left</option>
+									<option value='right'>Right</option>
+									<option value='bottom'>Bottom</option>
+								</select>
+							</div>
+							<div class="form-box placeholderInput">
+								<label>Placeholder <i class="Questionicons"><span class="R-st">The placeholder text that
+											will appear when this field is empty.</span></i></label>
+								<input type="text" id="areaPlace1" class="form-control" placeholder=" "
+									value="" onkeyup="placeHolderTextArea()" />
+							</div>
+							<div class="form-box tooltipInput">
+								<label>Tool Tip <i class="Questionicons"><span class="R-st">Adds a tooltip to the side of this field..</span></i></label>
+								<input id="tooltipFirst" type="text" class="form-control" placeholder=""
+									value="" onkeyup="populateToolTip()" />
+							</div>
+							<div class="form-box rowsInput">
+								<label>Rows <i class="Questionicons"><span class="R-st">This allows control over how
+											many rows are visible in the text area.</span></i></label>
+								<input type="text" class="form-control" placeholder=" " value="3" id="widthChange1" onkeyup="changeWidth()"/>
+							</div>
+							<div class="form-box requiredRadio">
+								<label>Required <i class="Questionicons"><span class="R-st">The label for this field
+											that will appear next to it.</span></i></label>
+								<input type="radio" placeholder=" " id="requiredYes"  name="reqyesorno" onclick="requiredYes()" />
+								Yes
+								<input type="radio" placeholder=" " id="requiredNo" name="reqyesorno" checked onclick="requiredNo()" />
+								No
+							</div>
+
+							<div class="form-box multicheckbox">
+								<label class="d-block">Privileges</label>
+								<div class="mc-item"><label><input type="checkbox" id="all" value="all"
+											name="privilageRadio" class="privilageClass Checked"
+											onclick="displayResult(event)" /><span>All</span></label></div>
+								<div class="mc-item"><label><input type="checkbox" value="admin" id="admin"
+											name="privilageAdmin" class="privilageClass"
+											onclick="displayResult(event)" /><span>Admin</span></label>
+								</div>
+								<div class="mc-item"><label><input type="checkbox" id="supervisors" name="privilageSup"
+											class="privilageClass"
+											onclick="displayResult(event)" /><span>Supervisors</span></label></div>
+								<div class="mc-item"><label><input type="checkbox" id="fieldStaff" name="privilageField"
+											class="privilageClass" onclick="displayResult(event)" /><span>Field
+											staff</span></label></div>
+							</div>
+						</div>
+					</div>
+					<div class="colu-6">
+						<div class="previewBox">
+							<div class="titlehead">Preview</div>
+							<div class="previewField">
+								<div class="form-box" id="submitArea">
+
+									<div class="hover-space" id="hoverDemoTop"></div>
+									<div class="formboxedit">
+										<a href="javascript:void(0)" class="icons settingIcon"
+											onclick="editField(event)"><span class="tooltiptext">Edit</span></a>
+										<a href="javascript:void(0)" class="icons moveIcon"
+											ondrag="moveField(event)"><span class="tooltiptext">Move</span></a>
+										<a href="javascript:void(0)" class="icons pasteicon"><span
+												class="tooltiptext">Paste</span></a>
+										<a href="javascript:void(0)" class="icons copyIcon"
+											onclick="copyCurrentDiv(event)"><span class="tooltiptext">Copy</span></a>
+										<!-- <a href="javascript:void(0)" class="icons wrenchIcon" onclick="createJSON(event)"><span class="tooltiptext">Edit JSON</span></a> -->
+										<a href="javascript:void(0)" class="icons deleteIcon"
+											onclick="removeCurrentDiv(event)"><span
+												class="tooltiptext remove">Remove</span></a>
+									</div>
+
+									<div id="previewData">
+
+										<label id="areaLabelSecond" class="d-flex"><sup id="prevYesNo"
+												style="display:none;">*</sup>
+											<i class="Questionicons f-left" style="display:none"><span class="R-st" id="tooltipSecond">Help
+													To Add To Text Field</span></i> </label>
+										<textarea class="form-control requiredField" id="areaPlace2" rows="5"
+											placeholder="" required></textarea>
+									</div>
+									<div class="hover-space" id="hoverDemoBot"></div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="btnBox">
+					<button class="btn saveButton" onclick="saveModal()">Save</button>
+					<button class="btn cancelButton" onclick="closeModal()">Cancel</button>
+					<button class="btn removeButton" onclick="removeModal()">Remove</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="form.js"></script>
+
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/fonts.css" rel="stylesheet" type="text/css" />
+	<link href="css/mainstyle.css" rel="stylesheet" type="text/css" />
+	<link href="css/responsive.css" rel="stylesheet" type="text/css" />
+	<title>Form drag and drop</title>
+</head>
+
+<body class="mainFormsec" style="background-color:#fff;">
+	<div class="homebodywrap" style="display: flex;flex-wrap:wrap;align-items: center;min-height: 100vh;">
+		<div class="col-row" style="justify-content: center;flex-direction: column;">
+			<div class="colu-6" style="margin:auto;">
+				<form name="myForm">
+				<div class="form-box">
+
+					<label class="d-flex">Form Name <sup>*</sup> <i class="Questionicons" style="float: right;"></i>
+					</label></label>
+					<input type="email" class="form-control" name="fname"  placeholder="" id="TitleFirst" />
+				</div>
+
+			</div>
+			<div class="colu-6" style="margin:auto;">
+				<div class="col-row formsavebox">
+					<div class="colu-6" style="text-align:left;">
+						<a href="form.html" class="formbtn uploadbtn">
+							<span>Upload Form</span>
+						</a>
+					</div>
+					<div class="colu-6" style="text-align:right;padding-right: 0;">
+						<a id="createTitle" class="formbtn savebtn" onClick="populateTitleTextBox()">
+							<span style="cursor:pointer;" >Create</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</form>
+		</div>
+	</div>
+
+	<script src="form.js"></script>
+
+</body>
+
+</html>

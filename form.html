@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/fonts.css" rel="stylesheet" type="text/css" />
+	<link href="css/mainstyle.css" rel="stylesheet" type="text/css" />
+	<link href="css/responsive.css" rel="stylesheet" type="text/css" />
+	<title>Form drag and drop</title>
+</head>
+
+<body class="mainFormsec" onload="formFunction()">
+	<header>
+		<h2 id="TitleSecond" value=""><strong>Form Name :</strong> </h2>
+		<div class="dropdown">
+			<a href="javascript:void(0);" class="ppmain">Privileges <span>(Admin)</span>
+				<div class="dropdown-menu">
+					<a href="">All</a>
+					<a href="" class="selected">Admin</a>
+					<a href="">Supervisors</a>
+					<a href="">Field staff</a>
+				</div>
+		</div>
+	</header>
+	<div class="bodywrapper">
+		<span style="font-size:30px;cursor:pointer;color:#fff;" id="ham-icon" onClick="addRemove()">&#9776; </span>
+
+		<aside class="sidebar" id="listId">
+			<!-- <button onclick="close()" class="w3-bar-item w3-large">Close &times;</button> -->
+
+
+			<div class="innerSidebar">
+				<div class="listoffields ">
+					<div id="inpSection" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Section</strong>
+					</div>
+					<div id="inpTextField" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Text Field</strong>
+					</div>
+					<div id="inpTextArea" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Textarea</strong>
+					</div>
+					<div id="inpNumber" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Numbers</strong>
+					</div>
+					<div id="inpPhone" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Phone</strong>
+					</div>
+					<div id="inpEmail" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Email</strong>
+					</div>
+					<div id="inpCheckBox" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Check Box</strong>
+					</div>
+					<div id="inpSelect" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Select Box</strong>
+					</div>
+					<div id="inpRadio" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Radio</strong>
+					</div>
+					<div id="inpButton" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Button</strong>
+					</div>
+					<div id="inpImage" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Image</strong>
+					</div>
+					<div id="inpUrlField" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Url</strong>
+					</div>
+					<div id="inpDateAndTime" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Date and Time</strong>
+					</div>
+					<div id="inpTitleBox" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Title Box</strong>
+					</div>
+					<div id="inpDialogue" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Dialogue</strong>
+					</div>
+					<div id="inpSignature" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Signature</strong>
+					</div>
+					<div id="inpDocument" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Document</strong>
+					</div>
+					<div id="inpTable" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Table</strong>
+					</div>
+					<div id="inpVideo" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Video Link or Embed Codes</strong>
+					</div>
+					<div id="inpPromise" class="filedmainbox" draggable="true" ondrag="onDragStart(event)">
+						<strong>Promise</strong>
+					</div>
+
+				</div>
+			</div>
+		</aside>
+		<section class="rightsidebox">
+			<div class="rightInner">
+				<div class="fieldSet example-dropzone" id='inner-box' style="min-height:calc(100vh - 200px);">
+
+					<div class="fieldsetHead" id="TitleDropAreaBox">
+
+
+					</div>
+					<div class="fieldsetBody">
+						<div class="innerContent radioClass" style="min-height: 500px;" id="parentDropAreaBox"
+							ondragover="onDragOver(event)" ondrop="onDrop(event)">
+
+						</div>
+
+						<div id="dropAreaBox"></div>
+
+					</div>
+					<div class="fieldsetView " style="display: none;padding: 15px;
+					border: 1px dashed #999; min-height: 500px;">
+						<div style="width:100%" id="jsonViewElement" class="radioClass"></div>
+						<button class="close-button " onclick="CloseViewJson()">&times; </button>
+
+					</div>
+					
+
+				</div>
+				<div class="formsavebox">
+					<div class="col-row">
+						<div class="colu-4" style="text-align:left;">
+
+							<input id="upload" type=file accept="json" name="files[]" size=30
+								onchange="handleFileSelect(event);">
+
+
+
+						</div>
+						<div class="colu-8" style="text-align:right;padding-right: 0;">
+							<a class="formbtn savebtn" style="cursor: pointer;"><img src="images/save-icons.svg"
+									class="svg-img" onclick="convertToJson('jsonStore');" /><span>Save</span></a>
+							<a class="formbtn saveasbtn" style="cursor: pointer;"><img src="images/save-icons.svg"
+									class="svg-img" onclick="convertToJson('json');" /><span>Save As</span></a>
+							<a class="formbtn viewbtn" style="cursor: pointer;"><img src="images/view-icon.svg"
+									class="svg-img" onclick="convertToJson('viewJson');" /><span>View</span></a>
+									<a class="formbtn viewbtn" style="cursor: pointer;"><img src="images/view-icon.svg"
+										class="svg-img" onclick="convertToJson('preViewJson');" /><span>Preview</span>
+									</a>
+							<a class="formbtn deletebtn" style="cursor: pointer;"><img src="images/delete-icon.svg"
+									class="svg-img" onclick="convertToJson('NewjsonStore');" /><span>Delete</span></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+
+
+
+	<script src="form.js">
+
+	</script>
+
+</body>
+
+</html>
